@@ -2,11 +2,11 @@ package com.company.VideoStore;
 
 public class Movie {
     //Atributos
-    private String gender;
+    private Gender gender;
     private String title;
     private String dateLaunch;
     private int duration;
-    private String audenceClassification;
+    private AudenceClassification audenceClassification;
     private String originCountry;
     private String description;
     private int amountCopies;
@@ -15,11 +15,11 @@ public class Movie {
     public Movie(){
     }
 
-    public Movie(String gender, String title, String dateLaunch, int duration,String audenceClassification, String originCountry, String description, int amountCopies){
+    public Movie(Gender gender, String title, String dateLaunch, int duration,AudenceClassification audenceClassification, String originCountry, String description, int amountCopies){
         this.gender= gender;
         this.title= title;
         this.dateLaunch= dateLaunch;
-        this. duration= duration;
+        this.duration= duration;
         this.audenceClassification= audenceClassification;
         this.originCountry= originCountry;
         this.description= description;
@@ -27,11 +27,11 @@ public class Movie {
     }
 
     //Getter and Setter
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 
@@ -59,11 +59,11 @@ public class Movie {
         this.duration = duration;
     }
 
-    public String getAudenceClassification() {
+    public AudenceClassification getAudenceClassification() {
         return audenceClassification;
     }
 
-    public void setAudenceClassification(String audenceClassification) {
+    public void setAudenceClassification(AudenceClassification audenceClassification) {
         this.audenceClassification = audenceClassification;
     }
 
@@ -92,7 +92,8 @@ public class Movie {
     }
 
     //Metodos
-    public String printMovie(){
+    @Override
+    public String toString(){
         return  "Genero: " + this.gender + " | Titulo: " + this.title + " | Lanzamiento: " + this.dateLaunch + " | Duracion: " + this.duration +
                 " | Clasificacion de la audiencia: " + this.audenceClassification + " | Pais: " + this.originCountry + " | Description: " + this.description +
                 " | Copias: " + this.amountCopies;

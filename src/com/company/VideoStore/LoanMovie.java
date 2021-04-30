@@ -2,7 +2,7 @@ package com.company.VideoStore;
 
 import java.util.List;
 
-public class LoanMovie extends Client{
+public class LoanMovie{
     //Atributos
     private Movie rentedMovie;
     private String retirementDate;
@@ -10,11 +10,9 @@ public class LoanMovie extends Client{
 
     //Constructores
     public LoanMovie(){
-        super();
     }
 
-    public LoanMovie(String name, double phone, String direction, Movie rentedMovie, String retirementDate, String returnDate){
-        super(name, phone, direction);
+    public LoanMovie(Movie rentedMovie, String retirementDate, String returnDate){
         this.rentedMovie= rentedMovie;
         this.retirementDate= retirementDate;
         this.returnDate= returnDate;
@@ -46,7 +44,8 @@ public class LoanMovie extends Client{
     }
 
     //Metodos
-    public void printLoanMovie(){
-         System.out.println(super.printClient() + " | Pelicula alquilada: " + this.rentedMovie + " | Fecha de returo: " + this.retirementDate + " | Fecha de devolucion: " + this.returnDate);
+    @Override
+    public String  toString(){
+         return "Pelicula alquilada: " + this.rentedMovie.getTitle() + " | Fecha de retiro: " + this.retirementDate + " | Fecha de devolucion: " + this.returnDate;
     }
 }
