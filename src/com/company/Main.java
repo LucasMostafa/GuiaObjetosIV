@@ -3,6 +3,7 @@ package com.company;
 import com.company.VideoStore.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Main {
@@ -74,8 +75,11 @@ public class Main {
 
         List <LoanMovie> listaLoanMovie= new ArrayList<>();
 
-        LoanMovie loanMovie1= new LoanMovie(movie8, "14 de febrero de 2019", "10 de mayo de 2021");
-        LoanMovie loanMovie2= new LoanMovie(movie3, "1 de agosto de 2020", "15 de noviembre de 2021");
+        Date fecheRetiro= new Date(121, 2, 6, 22, 15, 00);
+        Date fecheDevolucion= new Date(121, 3, 6, 00, 00, 00);
+
+        LoanMovie loanMovie1= new LoanMovie(movie8, fecheRetiro, fecheDevolucion);
+        LoanMovie loanMovie2= new LoanMovie(movie3, fecheRetiro, fecheDevolucion);
 
         listaLoanMovie.add(loanMovie1);
         listaLoanMovie.add(loanMovie2);
@@ -83,5 +87,9 @@ public class Main {
         Client client= new Client("Lucas", 155262921, "Costa azul 4608", listaLoanMovie);
 
         client.printClient();
+
+        String title= "Titanic";
+        Store store= new Store(Movies, null);
+        store.searchMovie(title);
     }
 }

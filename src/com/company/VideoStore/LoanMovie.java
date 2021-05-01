@@ -1,18 +1,19 @@
 package com.company.VideoStore;
 
+import java.util.Date;
 import java.util.List;
 
 public class LoanMovie{
     //Atributos
     private Movie rentedMovie;
-    private String retirementDate;
-    private String returnDate;
+    private Date retirementDate;
+    private Date returnDate;
 
     //Constructores
     public LoanMovie(){
     }
 
-    public LoanMovie(Movie rentedMovie, String retirementDate, String returnDate){
+    public LoanMovie(Movie rentedMovie, Date retirementDate, Date returnDate){
         this.rentedMovie= rentedMovie;
         this.retirementDate= retirementDate;
         this.returnDate= returnDate;
@@ -27,19 +28,19 @@ public class LoanMovie{
         this.rentedMovie = rentedMovie;
     }
 
-    public String getRetirementDate() {
+    public Date getRetirementDate() {
         return retirementDate;
     }
 
-    public void setRetirementDate(String retirementDate) {
+    public void setRetirementDate(Date retirementDate) {
         this.retirementDate = retirementDate;
     }
 
-    public String getReturnDate() {
+    public Date getReturnDate() {
         return returnDate;
     }
 
-    public void setReturnDate(String returnDate) {
+    public void setReturnDate(Date returnDate) {
         this.returnDate = returnDate;
     }
 

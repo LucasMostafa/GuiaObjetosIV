@@ -1,5 +1,6 @@
 package com.company.VideoStore;
 
+import java.util.Date;
 import java.util.List;
 
 public class Client {
@@ -60,5 +61,36 @@ public class Client {
             listLoanMovie.stream().forEach(x->System.out.println(x));
          else
              System.out.println("El cliente no tiene peliculas alquiladas.");
+    }
+
+    public void rentalMoviesCurrent(){
+        Date now= new Date();
+        if(this.listLoanMovie!=null){
+            for (LoanMovie m:listLoanMovie) {
+                if (now.before(m.getReturnDate()))
+                    System.out.println("Alquileres vigentes: " + m.toString());
+                else
+                    System.out.println("No hay alquileres vigentes.");
+            }
+        }
+    }
+
+    public void returnMoviesNow(){
+        Date now= new Date();
+        if(this.listLoanMovie!=null){
+            boolean dev= false;
+            for (LoanMovie m: this.listLoanMovie) {
+                if(now.getDay()==m.getReturnDate().getDay()){
+                    System.out.println("Devolucion que deben hacerse hoy: " + m.toString());
+                    dev= true;
+                }
+                else if(dev==false){
+                    System.out.println("No hay devoluciones.");
+                }
+            }
+        }
+        else{
+            System.out.println("No hay devoluciones.");
+        }
     }
 }
