@@ -40,4 +40,21 @@ public class Store {
                 System.out.println(m.toString());
         }
     }
+
+    public void rentalMovie(){
+        if(listClient!=null) {
+            for(Client c: this.listClient) {
+                c.rentalMoviesCurrent();
+            }
+        }
+    }
+
+    public void returnMovie(){
+        if(listClient!=null) {
+            for(Client c: this.listClient) {
+                c.returnMoviesNow();
+            }
+        }
+    }
+
 }

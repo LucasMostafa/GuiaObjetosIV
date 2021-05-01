@@ -66,11 +66,15 @@ public class Client {
     public void rentalMoviesCurrent(){
         Date now= new Date();
         if(this.listLoanMovie!=null){
+            boolean dev= false;
             for (LoanMovie m:listLoanMovie) {
-                if (now.before(m.getReturnDate()))
+                if (now.before(m.getReturnDate())) {
                     System.out.println("Alquileres vigentes: " + m.toString());
-                else
-                    System.out.println("No hay alquileres vigentes.");
+                    dev = true;
+                }
+            }
+            else if(dev==false){
+                System.out.println("No hay devoluciones.");
             }
         }
     }
@@ -84,9 +88,9 @@ public class Client {
                     System.out.println("Devolucion que deben hacerse hoy: " + m.toString());
                     dev= true;
                 }
-                else if(dev==false){
-                    System.out.println("No hay devoluciones.");
-                }
+            }
+            else if(dev==false){
+                System.out.println("No hay devoluciones.");
             }
         }
         else{

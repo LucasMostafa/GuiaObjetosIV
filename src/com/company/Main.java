@@ -73,23 +73,45 @@ public class Main {
 
         Movies.stream().forEach(x->System.out.println(x));
 
+        //Boleta de alquier
         List <LoanMovie> listaLoanMovie= new ArrayList<>();
+        List <LoanMovie> listaLoanMovie2= new ArrayList<>();
 
         Date fecheRetiro= new Date(121, 2, 6, 22, 15, 00);
         Date fecheDevolucion= new Date(121, 3, 6, 00, 00, 00);
 
         LoanMovie loanMovie1= new LoanMovie(movie8, fecheRetiro, fecheDevolucion);
-        LoanMovie loanMovie2= new LoanMovie(movie3, fecheRetiro, fecheDevolucion);
+        LoanMovie loanMovie2= new LoanMovie(movie4, fecheRetiro, fecheDevolucion);
+        LoanMovie loanMovie3= new LoanMovie(movie6, fecheRetiro, fecheDevolucion);
+        LoanMovie loanMovie4= new LoanMovie(movie2, fecheRetiro, fecheDevolucion);
+        LoanMovie loanMovie5= new LoanMovie(movie1, fecheRetiro, fecheDevolucion);
+        LoanMovie loanMovie6= new LoanMovie(movie16, fecheRetiro, fecheDevolucion);
+        LoanMovie loanMovie7= new LoanMovie(movie18, fecheRetiro, fecheDevolucion);
 
         listaLoanMovie.add(loanMovie1);
         listaLoanMovie.add(loanMovie2);
+        listaLoanMovie.add(loanMovie3);
+        listaLoanMovie2.add(loanMovie4);
+        listaLoanMovie2.add(loanMovie5);
+        listaLoanMovie2.add(loanMovie6);
+        listaLoanMovie2.add(loanMovie7);
 
+        //Clientes
+        List<Client> listClient= new ArrayList<>();
         Client client= new Client("Lucas", 155262921, "Costa azul 4608", listaLoanMovie);
+        Client client2= new Client("Gaston", 154887445, "Tucuman 2304", listaLoanMovie2);
+        listClient.add(client);
+        listClient.add(client2);
 
-        client.printClient();
+        for (Client c: listClient) {
+            c.printClient();
+        }
 
         String title= "Titanic";
-        Store store= new Store(Movies, null);
+        Store store= new Store(Movies, listClient);
         store.searchMovie(title);
+
+        store.rentalMovie();
+        store.returnMovie();
     }
 }
