@@ -1,5 +1,6 @@
 package com.company.VideoStore;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -64,32 +65,32 @@ public class Client {
     }
 
     public void rentalMoviesCurrent(){
-        Date now= new Date();
+        LocalDate now = LocalDate.now();
         if(this.listLoanMovie!=null){
             boolean dev= false;
             for (LoanMovie m:listLoanMovie) {
-                if (now.before(m.getReturnDate())) {
+                if (now.isBefore(m.getReturnDate())) {
                     System.out.println("Alquileres vigentes: " + m.toString());
                     dev = true;
                 }
             }
-            else if(dev==false){
+            if(dev==false){
                 System.out.println("No hay devoluciones.");
             }
         }
     }
 
     public void returnMoviesNow(){
-        Date now= new Date();
+        LocalDate now = LocalDate.now();
         if(this.listLoanMovie!=null){
             boolean dev= false;
             for (LoanMovie m: this.listLoanMovie) {
-                if(now.getDay()==m.getReturnDate().getDay()){
+                if(now.equals(m.getReturnDate())){
                     System.out.println("Devolucion que deben hacerse hoy: " + m.toString());
                     dev= true;
                 }
             }
-            else if(dev==false){
+            if(dev==false){
                 System.out.println("No hay devoluciones.");
             }
         }
@@ -97,4 +98,5 @@ public class Client {
             System.out.println("No hay devoluciones.");
         }
     }
+
 }

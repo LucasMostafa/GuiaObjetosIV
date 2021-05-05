@@ -34,7 +34,7 @@ public class Store {
     }
 
     //Metodos
-    public String searchMovie(String title){
+    public void searchMovie(String title){
         for (Movie m: listMovie) {
             if(title.equals(m.getTitle()))
                 System.out.println(m.toString());

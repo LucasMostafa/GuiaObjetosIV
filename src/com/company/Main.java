@@ -2,6 +2,7 @@ package com.company;
 
 import com.company.VideoStore.*;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -77,16 +78,18 @@ public class Main {
         List <LoanMovie> listaLoanMovie= new ArrayList<>();
         List <LoanMovie> listaLoanMovie2= new ArrayList<>();
 
-        Date fecheRetiro= new Date(121, 2, 6, 22, 15, 00);
-        Date fecheDevolucion= new Date(121, 3, 6, 00, 00, 00);
+        LocalDate fecha = LocalDate.of(2021,4,29);
+        LocalDate fecha2 = LocalDate.of(2021,5,2);
+        LocalDate fecha3 = LocalDate.now();
+        LocalDate fecha4 = LocalDate.of(2021,4,3);
 
-        LoanMovie loanMovie1= new LoanMovie(movie8, fecheRetiro, fecheDevolucion);
-        LoanMovie loanMovie2= new LoanMovie(movie4, fecheRetiro, fecheDevolucion);
-        LoanMovie loanMovie3= new LoanMovie(movie6, fecheRetiro, fecheDevolucion);
-        LoanMovie loanMovie4= new LoanMovie(movie2, fecheRetiro, fecheDevolucion);
-        LoanMovie loanMovie5= new LoanMovie(movie1, fecheRetiro, fecheDevolucion);
-        LoanMovie loanMovie6= new LoanMovie(movie16, fecheRetiro, fecheDevolucion);
-        LoanMovie loanMovie7= new LoanMovie(movie18, fecheRetiro, fecheDevolucion);
+        LoanMovie loanMovie1= new LoanMovie(movie4,fecha,fecha2);
+        LoanMovie loanMovie2= new LoanMovie(movie8,fecha4, fecha3);
+        LoanMovie loanMovie3= new LoanMovie(movie18,fecha2, fecha4);
+        LoanMovie loanMovie4= new LoanMovie(movie9,fecha2, fecha4);
+        LoanMovie loanMovie5= new LoanMovie(movie11,fecha, fecha3);
+        LoanMovie loanMovie6= new LoanMovie(movie12,fecha2, fecha4);
+        LoanMovie loanMovie7= new LoanMovie(movie14,fecha2, fecha4);
 
         listaLoanMovie.add(loanMovie1);
         listaLoanMovie.add(loanMovie2);
@@ -107,6 +110,7 @@ public class Main {
             c.printClient();
         }
 
+        //Buscar por titulo
         String title= "Titanic";
         Store store= new Store(Movies, listClient);
         store.searchMovie(title);
